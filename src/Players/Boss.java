@@ -18,13 +18,6 @@ public class Boss extends GameEntity {
     public void attack(Hero[] heroes) {
         for (Hero hero : heroes) {
             if (hero.getHealth() > 0) {
-                if (RPG_Game.shieldIsActive) {
-                    continue;
-                }
-                // Проверка: TrickyBastard не получает урон, если "мертв"
-                if (hero instanceof TrickyBastard tricky && tricky.isPretendingDead()) {
-                    continue;
-                }
                 if (hero instanceof Berserk berserk &&
                         this.defence != SuperAbility.BLOCK_REVERT) {
                     int block = RPG_Game.random.nextInt(1, 3) * 5; // 5, 10

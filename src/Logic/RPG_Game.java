@@ -7,12 +7,10 @@ import java.util.Random;
 public class RPG_Game {
 
     public static Random random = new Random();
-    public static boolean shieldIsActive;
     public static int roundNumber;
-    private static boolean shieldsActive = false;
 
     public static void startGame() {
-        Boss boss = new Boss("Aleksey", 1500, 50);
+        Boss boss = new Boss("Aleksey", 1000, 50);
 
         Warrior warrior1 = new Warrior("Bob", 280, 20);
         Warrior warrior2 = new Warrior("Arthur", 270, 15);
@@ -20,11 +18,9 @@ public class RPG_Game {
         Berserk berserk = new Berserk("John", 260, 10);
         Medic doc = new Medic("Hendolf", 200, 5, 15);
         Medic assistant = new Medic("Peter", 300, 5, 5);
-        TrickyBastard trickyBastard  = new TrickyBastard("Jim", 100, 10);
-        Avenger avenger = new Avenger("Kane", 150, 5);
-        Hacker hacker = new Hacker("Tim", 120, 10);
+        Hacker hacker = new Hacker("Tim", 150, 5);
 
-        Hero[] heroes = {warrior1, doc, warrior2, berserk, magic, assistant, trickyBastard, avenger, hacker};
+        Hero[] heroes = {warrior1, doc, warrior2, berserk, magic, assistant, hacker};
 
         printStatistics(boss, heroes);
         while (!isGameOver(boss, heroes)) {
@@ -71,6 +67,5 @@ public class RPG_Game {
             }
         }
         printStatistics(boss, heroes);
-        shieldsActive = false;
     }
 }
